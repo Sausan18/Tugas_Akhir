@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Prestasi</title>
+    <link rel="stylesheet" href="../public/css/app.css">
+    <script src="../public/js/app.js"></script>
+</head>
+
+<!--form -->
+<input type="checkbox" id="my-modal-4" class="modal-toggle" />
+<label for="my-modal-4" class="modal cursor-pointer">
+<label class="modal-box relative" for="">
+    <h2 class="font-bold text-xl lg:text-2xl my-4">Unggah Data Prestasi</h2>
+<form action="" id="form-add-beasiswa" method="POST" show-validation>
+<div class="form-control">
+<label for="nama" class="label">
+    <span class="label-text label-required">NIM</span>
+</label>
+<input type="text" name="nim" id="nim" class="input input-bordered" placeholder="masukkan nim">
+</div>
+<div class="form-control">
+<label for="namamahasiswa" class="label">
+    <span class="label-text label-required">Nama Mahasiswa</span>
+</label>
+<input type="text" name="namamahasiswa" id="namamahasiswa" class="input input-bordered" placeholder="masukkan nama mahasiswa">
+</div>
+<div class="form-control">
+<label for="pretasi" class="label">
+    <span class="label-text label-required">Prestasi</span>
+</label>
+<input type="text" name="prestasi" id="prestasi" class="input input-bordered" placeholder="masukkan prestasi yang diperoleh">
+</div>
+<div class="form-control">
+    <label for="tahun" class="label">
+        <span class="label-text label-required">Tahun</span>
+    </label>
+    <select type="text" name="tahun" id="tahun" class="select select-bordered" style="width: 100%;">
+        <option disabled selected>Pilih Tahun</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2026</option>
+        <option value="2026">2026</option>
+    </select>
+</div>
+<br>
+<div class="form-control w-full max-w-xs">
+    <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+</div>
+<div class="modal-action">
+<button type="submit" form="form-add-beasiswa" class="btn btn-primary btn-block">Unggah</button>
+</div>
+</form>
+</label>
+</label>
+<!-- end form -->
+
+<body>
+    <div class="lg:mx-4">
+        <div class="drawer drawer-mobile">
+            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+                <!-- Page content here -->
+
+                <!-- Navbar -->
+                <div class="navbar bg-base-100 bg-teal-500">
+                    <div class="flex-1">
+                        <label for="my-drawer-2" class="drawer-button lg:hidden px-3 pt-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="flex-none gap-2">
+                        <div class="pt-3 font-semibold">Sausan Nabilah</div>
+                        <div class="dropdown dropdown-end">
+                            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                                <div class="w-15 rounded-full">
+                                    <img src="../public/img/profile.png" />
+                                </div>
+                            </label>
+                            <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a href="">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                        </svg>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Navbar -->
+
+                <!-- Content -->
+                <div class="lg:text-2xl text-xl font-bold">Data Prestasi</div>
+                <!-- The button to open modal -->
+                <div class="text-right mr-11"><label for="my-modal-4" class="btn btn-success">Unggah Data</label></div>
+
+                <div class="grid grid-cols-12 gap-3">
+                    <div class=" col-span-4">
+                        <div class="form-control">
+                            <label class="label" for="filter_tahun">
+                                <span class="label-text">Tahun</span>
+                            </label>
+                            <select id="filter_tahun" class="select select-bordered">
+                                <option disabled selected>Pilih Tahun</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2026</option>
+                                    <option value="2026">2026</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <div class="datatable">
+                        <div class="overflow-x-auto">
+                            <table id="table" class="table w-full" style="width: 100%;">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>NIM</th>
+                                        <th>Nama Mahasiswa</th>
+                                        <th>Prestasi</th>
+                                        <th>Tahun</th>
+                                        <th>File</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                    <tbody class="text-center">
+                                        <tr>
+                                            <td>1908107010093</td>
+                                            <td>Sausan Nabilah</td>
+                                            <td>Juara 1 Tartil Quran</td>
+                                            <td>2023</td>
+                                            <td>
+                                                <button class="btn btn-info">Lihat</button>
+                                            </td>
+                                            <td>
+                                                <label for="my-modal-4" class="btn btn-warning">Edit</label>
+                                                <button class="btn btn-error">Hapus</button>
+                                            </td>
+                                          </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!-- End Of Content -->
+
+                <!-- Footer -->
+                <footer class="footer footer-center p-4 ">
+                    <div>
+                        <p>Copyright © 2023 - All right reserved by SIPEDA</p>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <div class="drawer-side">
+                <label for="my-drawer-2" class="drawer-overlay"></label>
+                <ul class="menu p-4 w-64 bg-base-100 text-base-content">
+                    <!-- Sidebar content here -->
+                    <img src="../public/img/logo.png" alt="Logo" width="900" class="mx-auto">
+                    <hr class="my-5">
+                    <li class="">
+                        <a class="flex justify-between" href="dashboard.html">
+                            <div class="flex justify-start">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                                </svg>
+                                <span class="pl-2 text-sm mt-1">Dashboard</span>
+                            </div>
+
+                            <div>
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a class="flex justify-between" href="kegiatan.html">
+                            <div class="flex justify-start">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="pl-2 text-sm mt-1">Data Kegiatan</span>
+                            </div>
+
+                            <div>
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a class="flex justify-between" href="prestasi.html">
+                            <div class="flex justify-start">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="pl-2 text-sm mt-1">Data Prestasi</span>
+                            </div>
+
+                            <div>
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a class="flex justify-between" href="beasiswa.html">
+                            <div class="flex justify-start">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="pl-2 text-sm mt-1">Data Beasiswa</span>
+                            </div>
+
+                            <div>
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <input type="checkbox" id="modal-global" class="modal-toggle" />
+    <label id="modal-global-container" for="modal-global" class="modal modal-bottom sm:modal-middle cursor-pointer">
+        <label class="modal-box p-8 relative">
+
+        </label>
+    </label>
+</body>
+</html>
